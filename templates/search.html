@@ -1,27 +1,116 @@
 <html>
-    <head>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        background-color: #f7f7f7;
+      }
 
-    </head>
-    <body>
-        <h1>검색결과</h1>
-        <p>인크루트, 고용24, 잡코리아 사이트의 검색결과를 활인할 수 있습니다.</p>
-        <table>
-            <tr>
-                <td>번호</td>
-                <td>회사</td>
-                <td>공고제목</td>
-                <td>지역</td>
-                <td>상세보기 링크</td>
-            </tr>
-            {%for num, job in jobs%}
-            <tr>
-                <td>{{num+1}}</td>
-                <td>{{job["company"]}}</td>
-                <td>{{job["title"]}}</td>
-                <td>{{job["location"]}}</td>
-                <td>{{job["link"]}}</td>
-            </tr>
-            {%endfor%}
-        </table>
-    </body>
+      h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+      }
+
+      .site-title {
+        width: 100%;
+        padding: 15px 0;
+        background-color: #4a90e2;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        margin: 30px 0 15px 0;
+        border-radius: 8px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: white;
+        margin-bottom: 40px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      th {
+        background-color: #333;
+        color: white;
+        padding: 12px;
+      }
+
+      td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+      }
+
+      tr:hover {
+        background-color: #f1f7ff;
+      }
+
+      a {
+        color: #0066cc;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>검색결과 {{ keyword }} : {{ count }}건</h1>
+
+    <!-- 인크루트 -->
+    <div class="site-title">인크루트 검색결과</div>
+
+    <table>
+      <tr>
+        <th>번호</th>
+        <th>회사</th>
+        <th>공고제목</th>
+        <th>지역</th>
+        <th>상세보기 링크</th>
+      </tr>
+
+      {% for num, job in incruit_jobs %}
+      <tr>
+        <td>{{num+1}}</td>
+        <td>{{job["company"]}}</td>
+        <td>{{job["title"]}}</td>
+        <td>{{job["location"]}}</td>
+        <td>
+          <a href="{{job['link']}}" target="_blank">보기</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    <!-- 사람인 -->
+    <div class="site-title">사람인 검색결과</div>
+
+    <table>
+      <tr>
+        <th>번호</th>
+        <th>회사</th>
+        <th>공고제목</th>
+        <th>지역</th>
+        <th>상세보기 링크</th>
+      </tr>
+
+      {% for num, job in saramin_jobs %}
+      <tr>
+        <td>{{num+1}}</td>
+        <td>{{job["company"]}}</td>
+        <td>{{job["title"]}}</td>
+        <td>{{job["location"]}}</td>
+        <td>
+          <a href="{{job['link']}}" target="_blank">보기</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
 </html>

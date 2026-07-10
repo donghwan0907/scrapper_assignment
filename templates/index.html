@@ -1,16 +1,44 @@
+<!doctype html>
 <html>
+  <head>
+    <title>잡스크래퍼</title>
 
-    <head>
-        <title>잡스크래퍼</title>
-    </head>
-    <body>
-        <h1>잡스크래퍼입니다.</h1>
-        <div>
-            <form action="/search">
-                <input name="ketword"/>
-                <button>검색하기</button>
-            </form>
-            
-        </div>
-    </body>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+
+    <style>
+      body {
+        background: white !important;
+        color: black;
+      }
+
+      main {
+        margin-top: 80px;
+      }
+
+      h1 {
+        color: black;
+      }
+
+      p {
+        color: gray;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="container">
+      <h1>💼 잡스크래퍼 : 원하는 직업을 스크랩 해드립니다!</h1>
+
+      <p>원하는 직업의 채용 정보를 검색하세요.</p>
+
+      <form action="/search">
+        <input name="keyword" placeholder="검색어 입력" />
+
+        <button>검색하기</button>
+      </form>
+    </main>
+  </body>
 </html>

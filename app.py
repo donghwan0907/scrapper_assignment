@@ -1,5 +1,5 @@
 from flask import Flask,render_template,request
-from scrapper import(search_incruit)
+from scrapper import(search_incruit,search_saramin)
 
 app = Flask(__name__)
 
@@ -9,12 +9,11 @@ def hello_world():
 
 @app.route("/search")
 def search():
-    keyword=request.args.get("ketword")
-    print(keyword)
-    jobs=search_incruit(keyword)
-    print(jobs)
-    return render_template("search.html",jobs=enumerate(jobs))#앞의 jobs는 search,html에서 쓸 변수
-
+    keyword=request.args.get("keyword")
+    incruit_jobs = search_incruit(keyword)
+    saramin_jobs = search_saramin(keyword)
+    jobs=incruit_jobs + saramin_jobs
+    return render_template("search.html",incruit_jobs=enumerate(incruit_jobs),saramin_jobs=enumerate(saramin_jobs),keyword=keyword,count=len(jobs))
 
 
 
