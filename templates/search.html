@@ -61,10 +61,10 @@
   </head>
 
   <body>
-    <h1>검색결과 {{ keyword }} : {{ count }}건</h1>
+    <h1>총 검색결과 : {{ count }}건</h1>
 
     <!-- 인크루트 -->
-    <div class="site-title">인크루트 검색결과</div>
+    <div class="site-title">{{ keyword }} : 인크루트 검색결과</div>
 
     <table>
       <tr>
@@ -89,7 +89,7 @@
     </table>
 
     <!-- 사람인 -->
-    <div class="site-title">사람인 검색결과</div>
+    <div class="site-title">{{ keyword }} : 사람인 검색결과</div>
 
     <table>
       <tr>
